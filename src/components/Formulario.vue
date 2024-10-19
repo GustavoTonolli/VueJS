@@ -10,34 +10,36 @@
           type="text"
           class="input"
           placeholder="Qual tarefa você deseja iniciar?"
+          v-model="descricao"
         />
       </div>
       <div class="column">
-        <div
-          class="is-flex is-align-items-center is-justify-content-space-evenly"
-        >
-          <section>
-            <strong>00:00:00</strong>
-          </section>
-          <button class="button">
-            <span class="icon">
-              <i class="fas fa-play"></i>
-            </span>
-          </button>
-          <button class="button">
-            <span class="icon">
-              <i class="fas fa-stop"></i>
-            </span>
-          </button>
-        </div>
+        <Temporizador @aoTemporizadorFinalizado="finalizarTarefa" />
       </div>
     </div>
   </div>
 </template>
 <script lang="ts">
 import { defineComponent } from "vue";
+import Temporizador from "./Temporizador.vue";
 
 export default defineComponent({
   name: "Formulário",
+  components: {
+    Temporizador,
+  },
+  data() {
+    return {
+      descricao: "",
+    };
+  },
+  methods: {
+    finalizarTarefa(tempoDecorrido: number): void {
+      // Ação a ser executada ao finalizar o temporizador
+      console.log(`Tempo decorrido: ${tempoDecorrido} segundos`);
+      console.log("descrição da tarefa: ", this.descricao);
+      this.descricao = ""; // Limpa a descrição da tarefa após finalizar o temporizador
+    },
+  },
 });
 </script>
