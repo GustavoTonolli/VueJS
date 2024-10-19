@@ -55,4 +55,16 @@ export default defineComponent({
 .lista {
   padding: 1.25rem;
 }
+/* modo escuro abaixo com variaveis */
+/* main {
+  --bg-primario: #fff;
+  --texto-primario: #000;
+}
+main.modo-escuro {
+  --bg-primario: #3b3b3b;
+  --texto-primario: #fff;
+}
+.conteudo {
+  background-color: var(--bg-primario);
+} */
 </style>
